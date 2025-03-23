@@ -11,7 +11,7 @@ Other Links:
 
 ## Information
 
-This file contains the cryptography course. If there are missing weeks, it is because I haven't published it yet or didn't have the time to finish the code. It's taking longer for me to publish it here as I'm trying to adhere to the Cousera's rules. Please read [Cousera Honor Code](https://www.coursera.support/s/article/209818863-Coursera-Honor-Code?language=en_US) for details on the rules when I submit the assignments there. Thank you. 
+This file contains the cryptography course. If there are missing weeks, it is because I haven't published it yet or didn't have the time to finish the code. It's taking longer for me to publish it here as I'm trying to adhere to the Cousera's rules. Thank you. 
 
 ## Authors
 
