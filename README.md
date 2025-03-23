@@ -23,7 +23,6 @@ This file contains the cryptography course. If there are missing weeks, it is be
 - [Coursera Honor Code](https://www.coursera.support/s/article/209818863-Coursera-Honor-Code?language=en_US)
 - [Coursera Terms and Use](https://www.coursera.org/about/terms)
 - [Coursera Privacy Notice](https://www.coursera.org/about/privacy)
-- [UMGC Library](https://libguides.umgc.edu/home)
 - [Google Scholar](https://scholar.google.com/)
 - [UMGC Library](https://libguides.umgc.edu/home)
  - Thank you!
