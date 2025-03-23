@@ -11,7 +11,7 @@ Other Links:
 
 ## Information
 
-This file contains the cryptography course. If there are missing weeks, it is beucase I haven't published it yet or didn't have the time.
+This file contains the cryptography course. If there are missing weeks, it is because I haven't published it yet or didn't have the time to finish the code. It's taking longer for me to publish it here as I'm trying to adhere to the Cousera's rules. Thank you.
 
 ## Authors
 
