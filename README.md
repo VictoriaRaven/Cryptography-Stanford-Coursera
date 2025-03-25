@@ -25,6 +25,7 @@ This file contains the cryptography course. If there are missing weeks, it is be
 - [Coursera Privacy Notice](https://www.coursera.org/about/privacy)
 - [Google Scholar](https://scholar.google.com/)
 - [UMGC Library](https://libguides.umgc.edu/home)
+- Bradley N. Miller, David L. Ranum, and Julie Anderson, *Python Programming in Context*, 3rd ed., Jones & Bartlett Learning, Oct. 2019. [Online Textbook Available](https://www.oreilly.com/library/view/python-programming-in/9781284175578/.)
  - Thank you!
  - VictoriaRaven
 
