@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>My Week 2 Q1</h1>
+
+<h4>Question 1: </h4>
+<p>
+Consider the following five events:
+- Correctly guessing a random 128-bit AES key on the first try.
+- Winning a lottery with 1 million contestants (the probability is 1/10^6). 
+- Winning a lottery with 1 million contestants 5 times in a row (the probability is (1/10^6)^5).
+- Winning a lottery with 1 million contestants 6 times in a row.
+  Winning a lottery with 1 million contestants 7 times in a row. 
+</p>
+<h4>Answer and Why: </h4>
+<p>Answer: 2, 3, 4, 1, 5
+Why:
+The probability of event (1) is 1/2^128.
+The probability of event (5) is 1/(10^6)^7 which is about 1/2^{139}.
+Therefore, event (5) is the least likely.
+The probability of event (4) is 1/(10^6)^6 which is about
+1/2^{119.5} which is more likely than event (1).
+The remaining events are all more likely than event (4).
+</p>
+
+<h4>Question 2: </h4>
+<p>
+Suppose that using commodity hardware it is possible to build a computer for about $200 that can
+brute force about 1 billion AES keys per second. Suppose an organization wants to run an
+exhaustive search for a single 128-bit AES key and was willing to spend 4 trillion dollars to buy
+these machines (this is more than the annual US federal budget). How long would it take the
+organization to brute force this single 128-bit AES key with these machines? Ignore additional
+costs such as power and maintenance.
+</p>
+<h4>Answer and Why: </h4>
+<p> Answer: More than a billion (10^9) years.
+Why:
+It is about 540 billion years since the number of machines = 4*10^12/200 = 2*10^10. And the number of  keys processed per sec = 10^9 *
+(2*10^10) = 2*10^19. And the number of seconds = 2^128 / (2*10^19) = 1.7*10^19, which is thus, this many seconds is about 540 billion
+years.
+</p>
+
+<h4>Question 3: </h4>
+<p> 
+Let F: {0,1}^n x {0,1}^n be a secure PRF(ex: a PRF where the key space, input space, and output space are all {0,1}^n) and say n=128. 
+Which of the following is a secure PRF.
+</p>
+<h4>Answer and Why: </h4>
+<p>Answer:
+- F'(k, x) = F(k, x (and or) 1^n)
+- F'((k_1, k_2), x) = F(k_1, x) || F(k_2,x) (where || denotes concatenation)
+- F'((k_1, k_2), x) = F(k_1, x) (and or) F(k_2, x)
+Why: 1) A distinguisher for F' gives a distinfuisher for F. 
+  </p>
+
+<h4>Question 4: </h4>
+<p>
+Recall that the Luby-Rackoff theorem discussed in Lecture 3.2 states that applying a three
+round Feistel network to a secure PRF gives a secure block cipher. Let's see what goes wrong if
+we only use a two round Feistel. Let be a secure PRF. Recall
+that a 2-round Feistel defines the following PRP :
+Here is the right 32 bits of the 64-bit input and is the left 32 bits.
+One of the following lines is the output of this PRP using a random key, while the other three
+are the output of a truly random permutation . All 64-bit outputs are
+encoded as 16 hex characters. Can you say which is the output of the PRP? Note that since you
+are able to distinguish the output of from random, is not a secure block cipher, which is
+what we wanted to show.
+Hint: First argue that there is a detectable pattern in the xor of and .
+Then try to detect this pattern in the given outputs.
+</p>
+<h4>Answer and Why: </h4>
+<p>Answer: On input 0^64 the output is "e86d2de2e1387ae9". On input 1^32 and 0^32 the output is "1792d21d b645c008".
+Why: The two round Feistel has the property that the left of F(0^64) and or F(1632 and 0^32). The two outputs in this answer are the only ones with this property.
+</p>
+
+<h4>Question 5: </h4>
+<p>
+Question 5
+Nonce-based CBC.  Recall that in 
+Lecture 4.4 we said that if one wants to use CBC encryption with a non-random unique nonce then the nonce must first be encrypted with an independent PRP key and the result then used as the CBC IV.
+Let's see what goes wrong if one encrypts the nonce with the same PRP key as the key used for CBC encryption.
+Let 
+F:K×{0,1} 
+ℓ →{0,1} 
+ℓ=128 Let 
+n be a n once and suppose one encrypts a message m by first computing 
+IV=F(k,n) and then using this IV in CBC encryption using 
+F(k,⋅)F, left parenthesis, k, comma, dot, right parenthesis.  Note that the same key 
+k is used for computing the IV and for CBC encryption.  We show that the resulting system is not nonce-based CPA secure.
+The attacker begins by asking for the encryption of the two block message 
+m=(0^ℓ,0^ℓ) with n once n=0^ℓ. It receives back a two block ciphertext(c_0,c_1). 
+Observe that by definition of CBC we know that 
+c_1 =F(k,c_0) Next, the attacker asks for the encryption of the one block message 
+m_1 = c_0 ⨁ c_1 with n once n = c_0.  It receives back a one block ciphertext c'_0.
+What relation holds between c_0,c_1,c'_0? Note that this relation les the adversary win the n once based CPA game with advantage 1.
+</p>
+<h4>Answer and Why: </h4>
+<p>Answer: c_1 = c'_0 
+Why:  Thsi follows the defintion of CBC with an encrypted n once as defined in the inquiry.</p>
+
+<h4>Question 6: </h4>
+<p> Let  m mm be a message consisting of  ℓ ℓell AES blocks (say  ℓ = 100 ℓ=100ell, equals, 100).  Alice encrypts m using CBC mode and transmits the resulting ciphertext to Bob.  Due to a network error, ciphertext block number ℓ / 2 ℓ/2ell, slash, 2 is corrupted during transmission. All other ciphertext blocks are transmitted and received correctly. Once Bob decrypts the received ciphertext, how many plaintext blocks will be corrupted?
+</p>
+<h4>Answer and Why: </h4>
+<p>Answer: 2; 
+Why: The CBC decryption circuit demosntrates that each ciphertext blocks
+affects only the current plaintext block and the next.
+</p>
+
+<h4>Question 7: </h4>
+<p>
+Let m be a message consisting of ℓ AES blocks (say ℓ=100). Alice encrypts m using
+randomized counter mode and transmits the resulting ciphertext to Bob. Due to a network error,
+ciphertext block number ℓ/2 is corrupted during transmission. All other ciphertext blocks are
+transmitted and received correctly. Once Bob decrypts the received ciphertext, how many
+plaintext blocks will be corrupted?
+</p>
+<h4>Answer and Why: </h4>
+<p>Answer: 1; 
+Why: The counter mode decryption circuit demosntrates that each ciphertext
+block affects only the current plaintext block. </p>
+
+<h4>Question 8: </h4>
+<p>Recall that encryption systems do not fully hide the length of transmitted messages. Leaking the
+length of web requests has been used to eavesdrop on encrypted HTTPS traffic to a number of
+web sites, such as tax preparation sites, Google searches, and healthcare sites. Suppose an
+attacker intercepts a packet where he knows that the packet payload is encrypted using AES in
+CBC mode with a random IV. The encrypted packet payload is 128 bytes. Which of the following
+messages is plausibly the decryption of the payload:
+
+</p>
+<h4>Answer and Why: </h4>
+<p>Answer: "We see immediately that one needs little information to begin to break down the process"
+Why: The correct message is "We see immediately that one needs little information to begin to break down the process" because it is the only option that, when the optional 128-byte AES payload is considered, fits within a plausible range of original plaintext lengths, even after considering padding and the IV. The other messages are significantly longer and would result in a larger total encrypted packet size. 
+The length of the string is 219 bytes, which after padding becomes 224 bytes,
+and after prepending the IV would become 240 bytes.
+
+<h4>Question 9: </h4>
+<p>What is the value of F(k,1101)?Note that since you are able to predict the function at a new point, this PRF is insecure.
+</p>
+<h4>Answer and Why: </h4>
+<p>Answer: 1111
+Why: Using the calulation formula dn also the hints form the notes, it would be 1111.
+</p>
+
+
+</body>
+</html>
+
